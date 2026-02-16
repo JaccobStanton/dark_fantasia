@@ -1,0 +1,80 @@
+.music-section {
+  background: #050807;
+  color: var(--text, #f2f2f2);
+  border-top: 1px solid #6f6f6f;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem) clamp(4rem, 7vw, 7rem);
+}
+
+.music-inner {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.music-title {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.4rem);
+  font-family: "Anybody", Verdana, sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.album-stage {
+  position: relative;
+  width: min(520px, 90vw);
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+  isolation: isolate;
+}
+
+.album-cover-image,
+.record-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: brightness(1.12) contrast(1.04) saturate(1.03);
+}
+
+.record-image {
+  z-index: 1;
+  opacity: 0;
+  transform: translate(-50%, -50%) translateX(-2%) rotate(-3deg);
+  transition:
+    opacity 420ms ease 280ms,
+    transform 950ms cubic-bezier(0.22, 1, 0.36, 1) 280ms;
+}
+
+.album-cover-image {
+  z-index: 2;
+  border-radius: 0.45rem;
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(10px) scale(0.985);
+  transition:
+    opacity 520ms ease,
+    transform 760ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.album-stage.is-visible .album-cover-image {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0) scale(1);
+}
+
+.album-stage.is-visible .record-image {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateX(34%) rotate(4deg);
+}
+
+@media (max-width: 768px) {
+  .album-stage {
+    width: min(420px, 92vw);
+  }
+
+  .album-stage.is-visible .record-image {
+    transform: translate(-50%, -50%) translateX(27%) rotate(4deg);
+  }
+}

@@ -1,0 +1,241 @@
+.music-section {
+  margin-top: clamp(4rem, 10vw, 10rem);
+  min-height: 285vh;
+  padding: 0 clamp(1rem, 4vw, 4rem) clamp(4rem, 8vw, 7rem);
+  background: #050807;
+  color: var(--text, #f2f2f2);
+}
+
+.music-sticky {
+  position: sticky;
+  top: 16vh;
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  min-height: 55vh;
+}
+
+.music-rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.music-featured {
+  margin: 0;
+  font-family: "Anybody", Verdana, sans-serif;
+  font-size: clamp(0.62rem, 0.9vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: rgba(242, 242, 242, 0.8);
+}
+
+.music-progress-track {
+  width: 2px;
+  height: clamp(140px, 25vh, 220px);
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+.music-progress-fill {
+  width: 100%;
+  height: 100%;
+  transform-origin: top;
+  background: var(--purple-hover, #a56bd6);
+}
+
+.music-title-wrap {
+  position: relative;
+  text-align: center;
+  padding-top: clamp(2.5rem, 7vh, 7rem);
+  overflow: visible;
+  min-height: clamp(420px, 70vh, 860px);
+}
+
+.music-title {
+  margin: 0;
+  font-family: "Anybody", Verdana, sans-serif;
+  font-size: clamp(5.8rem, 22vw, 24rem);
+  font-weight: 100;
+  line-height: 0.74;
+  letter-spacing: 0.012em;
+  position: relative;
+  z-index: 1;
+}
+
+.music-title.is-dimmed {
+  transition: opacity 280ms ease;
+}
+
+.music-album-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(560px, 72vw);
+  aspect-ratio: 1 / 1;
+  isolation: isolate;
+  z-index: 5;
+  cursor: grab;
+}
+
+.music-album-stage:active {
+  cursor: grabbing;
+}
+
+.music-album-stage.stage-two {
+  z-index: 6;
+}
+
+.music-album-cover,
+.music-record-image,
+.music-album-mask {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.music-album-cover,
+.music-record-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: brightness(1.11) contrast(1.03) saturate(1.03);
+}
+
+.music-record-image {
+  z-index: 1;
+}
+
+.music-album-mask {
+  z-index: 2;
+  width: 50%;
+  height: 72%;
+  transform: translate(-50%, -50%) translateX(-10%);
+  background: #050807;
+}
+
+.music-album-cover {
+  z-index: 3;
+  border-radius: 0.5rem;
+  border: 0.5px solid #303030;
+}
+
+.music-album-cover-two {
+  border: 0.5px solid #303030;
+}
+
+.music-cursor-cta {
+  position: fixed;
+  width: clamp(84px, 11vw, 128px);
+  height: clamp(84px, 11vw, 128px);
+  transform: translate(-50%, -50%) scale(0.88);
+  opacity: 0;
+  z-index: 30;
+  pointer-events: none;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
+}
+
+.music-cursor-cta.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.music-cursor-cta svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  animation: music-ring-spin 5.6s linear infinite;
+}
+
+.music-cursor-ring {
+  fill: #fafafa;
+}
+
+.music-cursor-cta text {
+  font-family: "Anybody", Verdana, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  fill: #101010;
+}
+
+.music-album-caption {
+  position: absolute;
+  left: 0;
+  bottom: -2.45rem;
+  margin: 0;
+  font-family: "Anybody", Verdana, sans-serif;
+  font-size: clamp(1.15rem, 1.9vw, 1.95rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text, #f2f2f2);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 260ms ease,
+    transform 260ms ease;
+}
+
+.music-album-caption.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes music-ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .music-section {
+    min-height: 245vh;
+    margin-top: clamp(3rem, 8vw, 6rem);
+  }
+
+  .music-sticky {
+    top: 13vh;
+  }
+
+  .music-rail {
+    left: 0.2rem;
+  }
+
+  .music-progress-track {
+    height: 120px;
+  }
+
+  .music-title {
+    font-size: clamp(5rem, 26vw, 16rem);
+    font-weight: 100;
+    line-height: 0.72;
+  }
+
+  .music-album-stage {
+    width: min(320px, 70vw);
+  }
+
+  .music-album-caption {
+    bottom: -1.95rem;
+    font-size: clamp(1rem, 3.2vw, 1.55rem);
+  }
+
+  .music-cursor-cta {
+    width: clamp(76px, 18vw, 108px);
+    height: clamp(76px, 18vw, 108px);
+  }
+
+}

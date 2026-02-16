@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Anybody', Verdana, sans-serif;
+  background: #050807;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  font-family: inherit;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}

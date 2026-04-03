@@ -7,9 +7,8 @@ import photoDrums from "../assets/gallery/3.webp";
 import photoGuitar from "../assets/gallery/6.webp";
 import photoLights from "../assets/gallery/1.webp";
 
-const primaryFilters = ["All categories", "Upcoming", "Release"];
+const primaryFilters = ["All categories", "Upcoming", "Release", "Music"];
 const secondaryFilters = [
-  "Music",
   "Update",
   "Store",
   "Merch",
@@ -84,7 +83,7 @@ function News() {
   }, [activeFilter]);
 
   const basePillSx = (theme) => ({
-    width: { xs: "calc(50% - 0.55rem)", sm: "clamp(160px, 16vw, 215px)" },
+    width: { xs: "100%", sm: "clamp(160px, 16vw, 215px)" },
     minWidth: 0,
     height: { xs: 48, md: 54 },
     borderRadius: theme.custom.radius.pill,
@@ -171,7 +170,12 @@ function News() {
               direction="row"
               flexWrap="wrap"
               gap={1.05}
-              sx={{ alignItems: "center" }}
+              sx={{
+                alignItems: "center",
+                display: { xs: "grid", sm: "flex" },
+                gridTemplateColumns: { xs: "repeat(2, minmax(0, 1fr))", sm: "none" },
+                width: "100%",
+              }}
             >
               {primaryFilters.map((item) => {
                 const isActive = activeFilter === item;
@@ -212,7 +216,12 @@ function News() {
               direction="row"
               flexWrap="wrap"
               gap={0.95}
-              sx={{ alignItems: "center" }}
+              sx={{
+                alignItems: "center",
+                display: { xs: "grid", sm: "flex" },
+                gridTemplateColumns: { xs: "repeat(2, minmax(0, 1fr))", sm: "none" },
+                width: "100%",
+              }}
             >
               {secondaryFilters.map((item) => {
                 const isActive = activeFilter === item;

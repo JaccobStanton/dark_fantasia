@@ -37,7 +37,7 @@ function Newsletter() {
           sx={{
             display: 'flex',
             alignItems: 'stretch',
-            gap: 1,
+            gap: { xs: 1.45, sm: 1.8 },
             width: '100%',
             maxWidth: '720px',
             margin: 'clamp(1.5rem, 3vw, 2rem) auto 0',

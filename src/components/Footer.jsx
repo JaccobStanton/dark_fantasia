@@ -46,7 +46,7 @@ function SocialIcon({ label, path }) {
 
 function FooterColumn({ title, links }) {
   return (
-    <Box>
+    <Box sx={{ textAlign: { xs: 'center', lg: 'left' } }}>
       <Typography
         sx={(theme) => ({
           marginBottom: '1rem',
@@ -61,7 +61,7 @@ function FooterColumn({ title, links }) {
         {title}
       </Typography>
 
-      <Stack spacing={0.85}>
+      <Stack spacing={0.85} sx={{ alignItems: { xs: 'center', lg: 'flex-start' } }}>
         {links.map((link) => (
           <MuiLink
             key={link}
@@ -103,7 +103,7 @@ function Footer() {
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: {
-            xs: '1fr',
+            xs: 'repeat(2, minmax(0, 1fr))',
             sm: 'repeat(2, minmax(0, 1fr))',
             lg: 'minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.35fr) minmax(260px, 0.95fr)',
           },
@@ -111,19 +111,19 @@ function Footer() {
           rowGap: { xs: 4, md: 5 },
         })}
       >
-        <Box sx={{ gridColumn: { xs: 'auto', lg: '1' } }}>
+        <Box sx={{ gridColumn: { xs: 'auto', lg: '1' }, justifySelf: { xs: 'center', lg: 'stretch' } }}>
           <FooterColumn title='SITEMAP' links={sitemapLinks} />
         </Box>
 
-        <Box sx={{ gridColumn: { xs: 'auto', lg: '2' } }}>
+        <Box sx={{ gridColumn: { xs: 'auto', lg: '2' }, justifySelf: { xs: 'center', lg: 'stretch' } }}>
           <FooterColumn title='UPDATES' links={updateLinks} />
         </Box>
 
-        <Box sx={{ gridColumn: { xs: 'auto', lg: '3' } }}>
+        <Box sx={{ gridColumn: { xs: 'auto', lg: '3' }, justifySelf: { xs: 'center', lg: 'stretch' } }}>
           <FooterColumn title='UTILITIES' links={utilityLinks} />
         </Box>
 
-        <Box sx={{ gridColumn: { xs: 'auto', lg: '4 / span 2' } }}>
+        <Box sx={{ gridColumn: { xs: 'auto', lg: '4 / span 2' }, justifySelf: { xs: 'center', lg: 'stretch' }, width: { xs: '100%', lg: 'auto' } }}>
           <Typography
             sx={(theme) => ({
               marginBottom: '1rem',
@@ -142,7 +142,7 @@ function Footer() {
             sx={{
               display: 'flex',
               alignItems: 'flex-end',
-              gap: 1,
+              gap: { xs: 1.6, sm: 1 },
               flexDirection: { xs: 'column', sm: 'row' },
               width: '100%',
             }}
@@ -187,13 +187,14 @@ function Footer() {
               sx={(theme) => ({
                 minWidth: { xs: '100%', sm: 'auto' },
                 flexShrink: 0,
+                minHeight: { xs: 58, sm: 0 },
                 color: theme.palette.text.primary,
                 borderColor: theme.custom.surface.strong,
                 borderWidth: '1px',
                 borderStyle: 'solid',
                 borderRadius: theme.custom.radius.md,
-                px: 1.35,
-                py: 0.72,
+                px: { xs: 2.2, sm: 1.35 },
+                py: { xs: 1.15, sm: 0.72 },
                 fontFamily: theme.typography.fontFamily,
                 fontWeight: 600,
                 letterSpacing: '0.05em',
@@ -211,11 +212,11 @@ function Footer() {
 
         <Box
           sx={{
-            gridColumn: { xs: 'auto', lg: '5' },
+            gridColumn: { xs: '1 / -1', lg: '5' },
             gridRow: { xs: 'auto', lg: '2' },
             display: 'flex',
-            alignItems: { xs: 'flex-start', lg: 'flex-end' },
-            justifyContent: { xs: 'flex-start', lg: 'flex-end' },
+            alignItems: { xs: 'center', lg: 'flex-end' },
+            justifyContent: { xs: 'center', lg: 'flex-end' },
           }}
         >
           <Box
@@ -233,11 +234,11 @@ function Footer() {
 
         <Box
           sx={{
-            gridColumn: { xs: 'auto', lg: '1 / span 4' },
+            gridColumn: { xs: '1 / -1', lg: '1 / span 4' },
             marginTop: { xs: 3.6, md: 5.2, lg: 1.6 },
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-start',
+            alignItems: { xs: 'center', lg: 'flex-start' },
             gap: 1.7,
           }}
         >

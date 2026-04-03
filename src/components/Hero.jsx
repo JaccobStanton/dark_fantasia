@@ -1,6 +1,7 @@
 import { Box, Link as MuiLink, Stack, Typography } from '@mui/material'
 import { keyframes, styled } from '@mui/material/styles'
 import videoClip from '../assets/video.mov'
+import mobileHeroImage from '../assets/gallery/1.webp'
 
 const heroFadeIn = keyframes`
   from {
@@ -33,6 +34,11 @@ const HeroRoot = styled(Box)(({ theme }) => ({
   },
   '@media (max-width:980px)': {
     minHeight: '120vh',
+  },
+  [theme.breakpoints.down('sm')]: {
+    '&::before': {
+      backgroundImage: `url("${mobileHeroImage}")`,
+    },
   },
 }))
 
